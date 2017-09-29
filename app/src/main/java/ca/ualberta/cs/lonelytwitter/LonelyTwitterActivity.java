@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Team X, CMPUT301, University of Alberta - All Rights Reserved. You may use, distribute, or modify this code under terms and conditions of the Code of Students Behavior at University of Alberta
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -25,6 +29,12 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * The main activity for the main page of the Application.
+ * @author amckerna
+ * @version 1.0
+ * @since 1.0
+ */
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
@@ -34,6 +44,10 @@ public class LonelyTwitterActivity extends Activity {
 	private ArrayAdapter<Tweet> adapter;
 	
 	/** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created
+     * @param savedInstanceState argument given by the application
+     */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,7 +59,10 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
 		saveButton.setOnClickListener(new View.OnClickListener() {
-
+            /**
+             * Sets the behaviour of the saveButton
+             * @param v parameter given by the button clicked
+             */
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
@@ -57,8 +74,12 @@ public class LonelyTwitterActivity extends Activity {
 			}
 		});
 
-		clearButton.setOnClickListener(new View.OnClickListener() {
 
+		clearButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Sets the behaviour of the clear button.
+             * @param v parameter given by the button clicked
+             */
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				tweets.clear();
@@ -71,6 +92,11 @@ public class LonelyTwitterActivity extends Activity {
 
 	}
 
+    /**
+     * Called every time the application moves to this activity. Updates the ListView.
+     * @see ListView
+     * @see ArrayAdapter
+     */
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -80,6 +106,12 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+    /**
+     * Loads a list of Tweets from a saved Json file
+     * @see ArrayList
+     * @see Gson
+     * @see Tweet
+     */
 	private void loadFromFile() {
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
@@ -97,7 +129,13 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 	}
-	
+
+    /**
+     * Saves the current list of Tweets to a Json file
+     * @see Gson
+     * @see ArrayList
+     * @see Tweet
+     */
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
