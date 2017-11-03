@@ -1,14 +1,8 @@
 package ca.ualberta.cs.lonelytwitter;
 
-
+//removed unused imports
 import android.test.ActivityInstrumentationTestCase2;
-import android.text.format.DateFormat;
-
-import org.junit.Test;
-
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by amckerna on 10/12/17.

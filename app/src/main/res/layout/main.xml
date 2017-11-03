@@ -24,8 +24,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello" />
-    
+    <!-- set inputType to text -->
     <EditText
+        android:inputType="text"
         android:id="@+id/body"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
